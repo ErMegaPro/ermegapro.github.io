@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Altezza della viewport */
+    background-image: url('your-hotel-image.jpg'); /* Sostituisci con il percorso della tua immagine */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Per posizionare il contenuto in alto e in basso */
+    align-items: center;
+    color: white; /* Colore del testo sulla foto */
+    text-align: left;
+    overflow: hidden; /* Nasconde le parti che escono */
+}
+
+/* Applica sfocatura e filtro di colore all'immagine di sfondo */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: inherit; /* Utilizza la stessa immagine del genitore */
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px) brightness(0.6) sepia(0.3) hue-rotate(100deg); /* Regola questi valori */
+    z-index: 1;
+    transform: scale(1.02); /* Per evitare bordi sfocati visibili */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); /* Leggera sovrapposizione scura per migliorare la leggibilità */
+    z-index: 2;
+}
+
+.navbar {
+    position: relative; /* Per essere sopra l'overlay */
+    z-index: 10; /* Assicura che la navbar sia sopra tutto */
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px 40px;
+    box-sizing: border-box; /* Include padding nel calcolo della larghezza */
+}
+
+.navbar nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+
+.navbar nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+    color: #e0e0e0;
+}
+
+.language-selector {
+    display: flex;
+    gap: 10px;
+    margin-left: 30px;
+}
+
+.language-selector .lang-icon {
+    display: block;
+    width: 24px;
+    height: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.language-selector .lang-icon:hover {
+    transform: scale(1.1);
+}
+
+.language-selector .lang-icon.active {
+    border-color: white;
+}
+
+.language-selector .lang-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5; /* Assicura che il contenuto sia sopra l'overlay */
+    max-width: 800px;
+    padding: 0 40px;
+    margin-right: auto; /* Allinea a sinistra */
+    margin-top: auto; /* Spinge il contenuto verso il basso ma non in fondo */
+    margin-bottom: 20vh; /* Spazio dal basso per il separatore */
+}
+
+.welcome-text {
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4em;
+    line-height: 1.1;
+    margin: 0;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+}
+
+.hero-content .description {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-top: 20px;
+    max-width: 600px;
+}
+
+.separator-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px; /* Altezza del separatore */
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1000 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M 0 100 C 200 0 800 0 1000 100 L 1000 100 L 0 100 Z" fill="%23f4f4f4"></path></svg>') no-repeat center bottom;
+    background-size: 100% 100px;
+    z-index: 6; /* Sopra l'immagine ma sotto il contenuto se necessario */
+}
+
+main {
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    transform: translateY(-50px); /* Solleva la sezione principale per sovrapporsi un po' al separatore */
+    position: relative;
+    z-index: 7; /* Assicura che la sezione principale sia sopra il separatore */
+}
+
+.section-under-hero, .another-section {
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.section-under-hero h2, .another-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    color: #444;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.section-under-hero p, .another-section ul {
+    font-size: 1.1em;
+    color: #555;
+}
+
+.another-section ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.another-section ul li {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-left: 5px solid #a8c6af; /* Un colore che si abbina al filtro dell'immagine */
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: #333;
+    color: white;
+    font-size: 0.9em;
+}
+
+/* Media Queries per la reattività */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+
+    .navbar nav ul {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .language-selector {
+        margin-left: 0;
+    }
+
+    .hero-content {
+        padding: 0 20px;
+        margin-bottom: 15vh;
+        text-align: center; /* Centra il testo su schermi più piccoli */
+        margin-right: unset; /* Rimuovi l'allineamento a sinistra */
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .welcome-text {
+        font-size: 1em;
+    }
+
+    .hero-content .description {
+        font-size: 1em;
+    }
+
+    main {
+        padding: 20px;
+        transform: translateY(-30px);
+    }
+
+    .section-under-hero h2, .another-section h2 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .hero-content .description {
+        font-size: 0.9em;
+    }
+
+    .separator-wave {
+        height: 70px;
+        background-size: 100% 70px;
+    }
+
+    .section-under-hero h2, .another-section h2 {
+        font-size: 1.8em;
+    }
+}
