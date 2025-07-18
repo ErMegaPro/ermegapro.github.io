@@ -13,7 +13,7 @@ body {
     position: relative;
     width: 100%;
     height: 100vh; /* Altezza della viewport */
-    background-image: url('your-hotel-image.jpg'); /* Sostituisci con il percorso della tua immagine */
+    background-image: url('../img/background.png'); /* Sostituisci con il percorso della tua immagine */
     background-size: cover;
     background-position: center;
     display: flex;
@@ -36,7 +36,7 @@ body {
     background-image: inherit; /* Utilizza la stessa immagine del genitore */
     background-size: cover;
     background-position: center;
-    filter: blur(5px) brightness(0.6) sepia(0.3) hue-rotate(100deg); /* Regola questi valori */
+    filter: blur(5px) brightness(0.6) sepia(0.3) hue-rotate(11deg); /* Regola questi valori */
     z-index: 1;
     transform: scale(1.02); /* Per evitare bordi sfocati visibili */
 }
@@ -259,20 +259,39 @@ footer {
 }
 
 @media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 2em;
+    /* ... (codice esistente per schermi < 480px) ... */
+
+    .navbar {
+        flex-direction: column; /* Già presente */
+        align-items: center; /* Mantiene la nav e il language-selector centrati */
+        padding: 15px 20px; /* Già presente */
+        width: 100%; /* Assicurati che la navbar occupi tutta la larghezza */
     }
 
-    .hero-content .description {
-        font-size: 0.9em;
+    .navbar nav { /* Nuovo: Aggiungi questo per il contenitore della navigazione */
+        width: 100%; /* Fa in modo che nav occupi tutta la larghezza */
+        text-align: center; /* Centra il testo dei link */
     }
 
-    .separator-wave {
-        height: 70px;
-        background-size: 100% 70px;
+    .navbar nav ul {
+        flex-direction: column; /* Già presente */
+        gap: 15px; /* Già presente */
+        margin-bottom: 15px; /* Già presente */
+        align-items: center; /* Centra i list-item all'interno della ul (se necessario) */
+        width: 100%; /* Assicurati che ul occupi tutta la larghezza */
+        padding: 0; /* Rimuove padding predefinito della ul */
     }
 
-    .section-under-hero h2, .another-section h2 {
-        font-size: 1.8em;
+    .navbar nav ul li {
+        width: 100%; /* Fa sì che ogni link occupi la sua riga completa */
+        text-align: center; /* Centra il testo all'interno di ogni li */
     }
+
+    .language-selector {
+        margin-left: 0; /* Già presente */
+        justify-content: center; /* Aggiungi: Centra le bandiere orizzontalmente */
+        width: 100%; /* Assicura che occupi tutta la larghezza per centrare */
+    }
+
+    /* ... (il resto del codice della media query) ... */
 }
