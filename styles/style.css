@@ -13,7 +13,7 @@ body {
     position: relative;
     width: 100%;
     height: 100vh; /* Altezza della viewport */
-    background-image: url('../img/background.png'); /* Sostituisci con il percorso della tua immagine */
+    /*background-image: url('../img/background.png'); /* Sostituisci con il percorso della tua immagine */
     background-size: cover;
     background-position: center;
     display: flex;
@@ -40,6 +40,30 @@ body {
     z-index: 1;
     transform: scale(1.02); /* Per evitare bordi sfocati visibili */
 }
+.background-slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Assicurati che sia il livello più basso, sotto overlay e contenuti */
+}
+.background-slideshow .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0; /* Tutte le slide sono inizialmente nascoste */
+    transition: opacity 1.5s ease-in-out; /* Durata della transizione di dissolvenza */
+    filter: blur(5px) brightness(0.6) sepia(0.3) hue-rotate(11deg); /* Applica i filtri qui */
+    transform: scale(1.02); /* Mantiene l'effetto zoom per evitare bordi sfocati */
+}
+.background-slideshow .slide.active-slide {
+    opacity: 1; /* Rendi visibile la slide attiva */
+}
 
 .overlay {
     position: absolute;
@@ -48,7 +72,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.2); /* Leggera sovrapposizione scura per migliorare la leggibilità */
-    z-index: 2;
+    z-index: 1;
 }
 
 .navbar {
