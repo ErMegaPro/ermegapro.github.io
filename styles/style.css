@@ -74,6 +74,120 @@ body {
     background-color: rgba(0, 0, 0, 0.2); /* Leggera sovrapposizione scura per migliorare la leggibilità */
     z-index: 1;
 }
+.button-section {
+    text-align: center; /* Centra il titolo e i paragrafi in questa sezione */
+}
+
+#calendar-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    max-width: 400px; /* Rendi il calendario non troppo largo */
+    margin: 20px auto; /* Centra il contenitore del calendario */
+}
+
+.calendar {
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #333;
+}
+
+.calendar-header button {
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    color: #a8c6af;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.calendar-header button:hover {
+    background-color: #e6f0e8;
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: 700;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.calendar-weekdays div {
+    text-align: center;
+    padding: 8px 0;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-days div {
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.calendar-days div:hover:not(.empty):not(.occupied):not(.selected) {
+    background-color: #e0e0e0;
+}
+
+.calendar-days div.empty {
+    background-color: transparent;
+    cursor: default;
+}
+
+/* Stile per i giorni occupati (con riga rossa) */
+.calendar-days div.occupied {
+    background-color: #ffe0e0; /* Sfondo leggermente rossastro */
+    color: #a00; /* Testo rosso scuro */
+    position: relative;
+    cursor: not-allowed;
+    font-weight: 600;
+}
+
+.calendar-days div.occupied::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background-color: #ff0000; /* Riga rossa */
+    transform: translateY(-50%);
+}
+
+.calendar-days div.selected {
+    background-color: #a8c6af;
+    color: white;
+    font-weight: 700;
+}
+
+/* Stile per il giorno corrente */
+.calendar-days div.current-day {
+    border: 2px solid #a8c6af;
+    font-weight: 700;
+}
+
 
 .navbar {
     position: relative; /* Per essere sopra l'overlay */
@@ -295,6 +409,17 @@ footer {
     .navbar nav { /* Nuovo: Aggiungi questo per il contenitore della navigazione */
         width: 100%; /* Fa in modo che nav occupi tutta la larghezza */
         text-align: center; /* Centra il testo dei link */
+    }
+    .calendar-header {
+        font-size: 1em;
+    }
+    .calendar-header button {
+        font-size: 1.5em;
+    }
+    .calendar-weekdays div,
+    .calendar-days div {
+        padding: 5px 0;
+        font-size: 0.9em;
     }
 
     .navbar nav ul {
