@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conny's Home - Prenotazioni</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/booking.css"> </head>
+<body>
+    <header class="header-small"> <div class="navbar">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Contatti e mappa</a></li>
+                    <li><a href="#">Cosa fare a Roma</a></li>
+                </ul>
+            </nav>
+            <div class="language-selector">
+                <a href="booking-it.html" class="lang-icon active"><img src="https://flagicons.lipis.dev/flags/4x3/it.svg" alt="Italiano" width="24"></a>
+                <a href="booking-es.html" class="lang-icon"><img src="https://flagicons.lipis.dev/flags/4x3/es.svg" alt="Spanish" width="24"></a>
+                <a href="booking-en.html" class="lang-icon"><img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English" width="24"></a>
+                <a href="booking-de.html" class="lang-icon"><img src="https://flagicons.lipis.dev/flags/4x3/de.svg" alt="Deutsch" width="24"></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="booking-main">
+        <h1>Prenota il tuo Soggiorno</h1>
+
+        <section class="guests-selector">
+            <h2>Numero di Persone</h2>
+            <div class="controls">
+                <button id="minus-guest">-</button>
+                <span id="guest-count">1</span>
+                <button id="plus-guest">+</button>
+            </div>
+        </section>
+
+        <section class="calendar-section">
+            <h2>Seleziona le Date</h2>
+            <div id="booking-calendar-container">
+                </div>
+            <div class="selected-dates-display">
+                <p>Date selezionate: <span id="selected-start-date">--</span> al <span id="selected-end-date">--</span></p>
+                <p id="stay-duration">Durata del soggiorno: -- notti</p>
+            </div>
+        </section>
+
+        <section class="price-summary">
+            <h2>Riepilogo e Prezzo</h2>
+            <div id="daily-prices-display">
+                </div>
+            <p class="total-price">Prezzo Totale: <span id="total-price-value">0</span> €</p>
+        </section>
+
+        <section class="booking-action">
+            <button id="proceed-to-details-btn" class="btn primary-btn" disabled>Procedi con i Dati Personali</button>
+        </section>
+        <div id="personal-details-form" class="hidden">
+                <h2>I tuoi Dati</h2>
+                <form id="booking-form">
+                    <div class="form-group">
+                        <label for="firstName">Nome:</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Cognome:</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Nazione di Provenienza:</label>
+                        <input type="text" id="country" name="country" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Numero di Telefono:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <button type="submit" id="submit-booking-btn" class="btn primary-btn">Richiedi Prenotazione</button>
+                    <button type="button" id="back-to-summary-btn" class="btn secondary-btn">Indietro</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Conny's Home. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script src="scripts/booking-en.js"></script> </body>
+</html>

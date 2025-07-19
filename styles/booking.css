@@ -1,0 +1,436 @@
+/* Stile per l'header ridotto nelle pagine interne */
+.header-small {
+    background-color: #a8c6af; /* Colore di sfondo uguale al main */
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-small .navbar {
+    position: static; /* Rimuovi la posizione relativa o assoluta per questo header */
+    padding: 10px 40px;
+    justify-content: space-between; /* Allinea a sinistra e destra */
+}
+
+/* Stili generali della pagina di booking */
+.booking-main {
+    max-width: 900px;
+    margin-top: 50px; /* Spazio dall'header */
+    margin-bottom: 50px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    padding: 30px;
+}
+
+.booking-main h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8em;
+    color: #444;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.booking-main h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    color: #555;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Stile per il selettore di persone */
+.guests-selector .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.guests-selector button {
+    background-color: #a8c6af;
+    color: white;
+    border: none;
+    border-radius: 50%; /* Per renderli rotondi */
+    width: 40px;
+    height: 40px;
+    font-size: 1.8em;
+    line-height: 1; /* Allineamento verticale del testo */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.guests-selector button:hover {
+    background-color: #8dafa3;
+}
+
+#guest-count {
+    font-size: 2em;
+    font-weight: 700;
+    color: #333;
+    min-width: 30px; /* Per mantenere lo spazio fisso */
+    text-align: center;
+}
+
+/* Stile per il calendario di prenotazione */
+#booking-calendar-container {
+    padding: 15px;
+    background-color: #fcfcfc;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin: 20px auto;
+    max-width: 400px; /* Larghezza massima del calendario */
+}
+
+/* Riutilizzo degli stili del calendario dal tuo style.css, con alcune modifiche */
+.calendar {
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #333;
+}
+
+.calendar-header button {
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    color: #a8c6af;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.calendar-header button:hover {
+    background-color: #e6f0e8;
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: 700;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.calendar-weekdays div {
+    text-align: center;
+    padding: 8px 0;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-days div {
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.calendar-days div:not(.empty):not(.occupied):not(.past-day):hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05); /* Piccolo effetto hover */
+}
+
+.calendar-days div.empty {
+    background-color: transparent;
+    cursor: default;
+}
+
+.calendar-days div.past-day { /* Nuova classe per i giorni passati */
+    color: #bbb;
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+/* Stile per i giorni occupati */
+.calendar-days div.occupied {
+    background-color: #ffe0e0; /* Sfondo leggermente rossastro */
+    color: #a00; /* Testo rosso scuro */
+    position: relative;
+    cursor: not-allowed;
+    font-weight: 600;
+}
+
+.calendar-days div.occupied::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background-color: #ff0000; /* Riga rossa */
+    transform: translateY(-50%);
+}
+
+/* Stili per la selezione del range (come nella foto di Airbnb) */
+.calendar-days div.selected-start,
+.calendar-days div.selected-end {
+    background-color: #4a90e2; /* Blu più intenso */
+    color: white;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+.calendar-days div.selected-start {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.calendar-days div.selected-end {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.calendar-days div.selected-range {
+    background-color: #8bb7f0; /* Blu più chiaro per il centro del range */
+    color: white;
+    border-radius: 0; /* Rimuovi bordi per continuità */
+}
+
+
+/* Stile per il giorno corrente */
+.calendar-days div.current-day {
+    border: 2px solid #a8c6af;
+    font-weight: 700;
+}
+
+
+/* Prezzi sotto i giorni */
+.calendar-days div span.price {
+    display: block;
+    font-size: 0.7em;
+    font-weight: 400;
+    color: #777; /* Colore più chiaro per il prezzo */
+    margin-top: 2px;
+}
+
+.calendar-days div.occupied span.price {
+    color: #a00; /* Rosso per prezzi di giorni occupati */
+}
+
+/* Display delle date selezionate e durata */
+.selected-dates-display {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.selected-dates-display span {
+    font-weight: 600;
+    color: #a8c6af;
+}
+
+/* Riepilogo prezzi giornalieri */
+#daily-prices-display {
+    margin-top: 20px;
+    font-size: 0.95em;
+    text-align: left;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+#daily-prices-display div {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px dotted #eee;
+}
+
+#daily-prices-display div:last-child {
+    border-bottom: none;
+}
+
+#daily-prices-display span {
+    font-weight: 600;
+}
+
+
+/* Prezzo totale */
+.total-price {
+    font-size: 1.5em;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 30px;
+    color: #333;
+}
+
+.total-price span {
+    color: #a8c6af;
+    font-size: 1.2em; /* Rende il prezzo totale più grande */
+}
+
+/* Pulsante di richiesta prenotazione */
+.booking-action {
+    text-align: center;
+    margin-top: 40px;
+}
+
+#request-booking-btn.btn {
+    padding: 18px 40px;
+    font-size: 1.3em;
+}
+
+#request-booking-btn:disabled {
+    background-color: #cccccc;
+    border-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}#proceed-to-details-btn.btn {
+    padding: 18px 40px;
+    font-size: 1.3em;
+}
+
+#proceed-to-details-btn:disabled {
+    background-color: #cccccc;
+    border-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
+
+/* Media Queries per la reattività del calendario */
+@media (max-width: 480px) {
+    .booking-main {
+        padding: 20px;
+    }
+    .booking-main h1 {
+        font-size: 2em;
+    }
+    .booking-main h2 {
+        font-size: 1.5em;
+    }
+    #booking-calendar-container {
+        padding: 10px;
+    }
+    .guests-selector button {
+        width: 35px;
+        height: 35px;
+        font-size: 1.5em;
+    }
+    #guest-count {
+        font-size: 1.8em;
+    }
+    .calendar-weekdays div,
+    .calendar-days div {
+        padding: 5px 0;
+        font-size: 0.8em;
+    }
+    .calendar-days div span.price {
+        font-size: 0.6em;
+    }
+    .selected-dates-display,
+    #daily-prices-display {
+        font-size: 0.9em;
+    }
+    .total-price {
+        font-size: 1.3em;
+    }
+    #request-booking-btn.btn {
+        padding: 15px 30px;
+        font-size: 1.1em;
+    }
+    #proceed-to-details-btn.btn {
+        padding: 15px 30px;
+        font-size: 1.1em;
+    }
+    
+}
+
+
+/* Stili per il form dei dati personali */
+#personal-details-form {
+    margin-top: 40px;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+#personal-details-form h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #444;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"] {
+    width: calc(100% - 20px); /* 100% meno padding */
+    padding: 12px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Include padding e border nella larghezza */
+    transition: border-color 0.2s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus {
+    border-color: #a8c6af;
+    outline: none;
+    box-shadow: 0 0 5px rgba(168, 198, 175, 0.5);
+}
+
+/* Allineamento dei pulsanti nel form */
+#personal-details-form .btn {
+    margin-top: 20px;
+    width: auto; /* Sovrascrive la regola .btn per la larghezza al 100% */
+}
+
+#personal-details-form #submit-booking-btn {
+    margin-right: 15px; /* Spazio tra i pulsanti */
+}
+
+
+/* Classe per nascondere/mostrare elementi */
+.hidden {
+    display: none !important; /* Importante per forzare l'occultamento */
+}
+
+/* Media Queries per la reattività del form */
+@media (max-width: 480px) {
+    #personal-details-form {
+        padding: 20px;
+    }
+    .form-group input {
+        width: 100%; /* Sfrutta tutta la larghezza su mobile */
+    }
+    #personal-details-form #submit-booking-btn,
+    #personal-details-form #back-to-summary-btn {
+        display: block; /* I pulsanti si impilano */
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px; /* Spazio tra i pulsanti impilati */
+    }
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conny's Home - Buchung</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/booking.css">
+</head>
+<body>
+    <header class="header-small">
+        <div class="navbar">
+            <nav>
+                <ul>
+                    <li><a href="index-de.html">Startseite</a></li>
+                    <li><a href="#">Kontakt und Karte</a></li>
+                    <li><a href="#">Was tun in Rom</a></li>
+                </ul>
+            </nav>
+            <div class="language-selector">
+                <a href="booking-it.html" class="lang-icon"><img src="https://flagicons.lipis.dev/flags/4x3/it.svg" alt="Italiano" width="24"></a>
+                <a href="booking-es.html" class="lang-icon"><img src="https://flagicons.lipis.dev/flags/4x3/es.svg" alt="Spanish" width="24"></a>
+                <a href="booking-en.html" class="lang-icon"><img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English" width="24"></a>
+                <a href="booking-de.html" class="lang-icon active"><img src="https://flagicons.lipis.dev/flags/4x3/de.svg" alt="Deutsch" width="24"></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="booking-main">
+        <h1>Buchen Sie Ihren Aufenthalt</h1>
+
+        <section class="guests-selector">
+            <h2>Anzahl der Personen</h2>
+            <div class="controls">
+                <button id="minus-guest">-</button>
+                <span id="guest-count">1</span>
+                <button id="plus-guest">+</button>
+            </div>
+        </section>
+
+        <section class="calendar-section">
+            <h2>Datum auswählen</h2>
+            <div id="booking-calendar-container">
+                </div>
+            <div class="selected-dates-display">
+                <p>Ausgewählte Daten: <span id="selected-start-date">--</span> bis <span id="selected-end-date">--</span></p>
+                <p id="stay-duration">Aufenthaltsdauer: -- Nächte</p>
+            </div>
+        </section>
+
+        <section class="price-summary">
+            <h2>Zusammenfassung und Preis</h2>
+            <div id="daily-prices-display">
+                </div>
+            <p class="total-price">Gesamtpreis: <span id="total-price-value">0</span> €</p>
+        </section>
+
+        <section class="booking-action">
+            <button id="proceed-to-details-btn" class="btn primary-btn" disabled>Mit persönlichen Daten fortfahren</button>
+        </section>
+        <div id="personal-details-form" class="hidden">
+            <h2>Ihre Daten</h2>
+            <form id="booking-form">
+                <div class="form-group">
+                    <label for="firstName">Vorname:</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Nachname:</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="country">Herkunftsland:</label>
+                    <input type="text" id="country" name="country" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-Mail:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefonnummer:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <button type="submit" id="submit-booking-btn" class="btn primary-btn">Buchungsanfrage senden</button>
+                <button type="button" id="back-to-summary-btn" class="btn secondary-btn">Zurück</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Conny's Home. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script src="scripts/booking-de.js"></script>
+</body>
+</html>

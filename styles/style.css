@@ -107,8 +107,8 @@ body {
 }
 
 .secondary-btn {
-    background-color: transparent;
-    color: #a8c6af; /* Colore del testo come il bordo */
+    background-color: #a8c6af;
+    color: white; /* Colore del testo come il bordo */
     border: 2px solid #a8c6af;
 }
 
